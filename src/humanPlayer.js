@@ -2,7 +2,7 @@
  * 人間のプレイヤー
  *
  */
-export default class HumanPlayer {
+export class HumanPlayer {
     constructor(playerId) {
         this.playerId = playerId;
     }

@@ -1,7 +1,7 @@
 import { OXGame } from './oxGame.js';
 import { SquareBoard } from './board.js';
-import HumanPlayer from './humanPlayer.js';
-import { EasyCpu } from './cpu.js';
+import { HumanPlayer } from './humanPlayer.js';
+import { EasyCpu } from './cpuPlayer.js';
 
 OXGame3by3HumanVsCpu();
 
