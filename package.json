@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/sakura818/marubatsu_game/issues"
   },
-  "homepage": "https://github.com/sakura818/marubatsu_game#readme"
+  "homepage": "https://github.com/sakura818/marubatsu_game#readme",
+  "devDependencies": {
+    "webpack": "^3.1.0"
+  }
 }
