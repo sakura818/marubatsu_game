@@ -65,43 +65,7 @@
 /************************************************************************/
 /******/ ([
 /* 0 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__ui_js__ = __webpack_require__(1);
-
-
-__WEBPACK_IMPORTED_MODULE_0__ui_js__["a" /* alertAlreadyPutMessage */]();
-__WEBPACK_IMPORTED_MODULE_0__ui_js__["c" /* displayBoard */]();
-__WEBPACK_IMPORTED_MODULE_0__ui_js__["b" /* countUp */]();
-
-/***/ }),
-/* 1 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (immutable) */ __webpack_exports__["a"] = alertAlreadyPutMessage;
-/* harmony export (immutable) */ __webpack_exports__["c"] = displayBoard;
-/* harmony export (immutable) */ __webpack_exports__["b"] = countUp;
-
-
-function alertAlreadyPutMessage() {
-    window.alert("クリックした場所は既にまるかばつで埋まっているため選択することはできません。");
-}
-
-function displayBoard() {
-    let i;
-    for (i = 0; i < 9; i++) {
-        document.write("<p>HTML文書の書き出しテストです</p>");
-    }
-}
-
-let clicks = 0;
-function countUp() {
-    clicks += 1;
-    document.getElementById("countUpButton").innerHTML = clicks;
-}
+/***/ (function(module, exports) {
 
 
 
