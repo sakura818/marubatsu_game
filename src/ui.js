@@ -1,47 +1,33 @@
-import { GameState } from './oxGame.js';
+// アラートとかボタンとかboardとか見た目に関するところ
 
-// ボードの駒とIDの連想配列
-export const PlayerChar = ['_', '○', '×', '△', '□'];
+export function alertAlreadyPutMessage() {
+    window.alert("クリックした場所は既にまるかばつで埋まっているため選択することはできません。");
+}
 
-/**
- * uiに関すること
- *
- */
-export const Ui = {
-    /**
-     * 現在のボードの状況を表示
-     */
-    printBoard function (board) {
-        for (let x = 0; x < board.verticalLength; x++) {
-            for (let y = 0; y < board.horizontalLength; y++) {
-                let oneSquare = board.gameBoardArray[x][y];
-                // TODO:oneSquare名前
-                document.getElementById(`${(x * board.horizontalLength) + y}`).innerHTML = PlayerChar[oneSquare];
-                // TODO:?
-            }
-        }
-    },
-    /**
-     * アラートで結果を発表する
-     */
-    alertResultAnnouncement function (result, playerId) {
-        switch (result) {
-            case GameState.END:
-                window.alert(`${PlayerChar[playerId]}の勝ちです。`)
-                // TODO:?
-                break;
-            case GameState.DRAW:
-                window.alert("引き分けです。");
-                break;
-
-            default:
-                throw new Error("引数resultが予期されないものでした。");
-        }
-    },
-    /**
-     * アラートでクリックした場所は既にまるかばつで埋まっているため選択することはできないことを伝える
-     */
-    alertAlreadyPutMessage function () {
-        window.alert("クリックした場所は既にまるかばつで埋まっているため選択することはできません。");
+export function displayBoard() {
+    let i;
+    for (i = 0; i < 9; i++) {
+        document.write("<p>HTML文書の書き出しテストです</p>");
     }
-};
+}
+
+
+
+let clicks = 0;
+export function countUp() {
+    clicks += 1;
+    document.getElementById("countUpButton").innerHTML = clicks;
+}
+
+
+// ゲームが終了した時にアラートを出す関数
+let gameState;
+export function gameStateAlert() {
+    // TODO: gameStateを引数にもつ
+    if (gameState == "end") {
+        window.alert("You Win")
+    } else if (gameState == "draw") {
+        window.alert("draw")
+    } else if (gameState == "continue") {
+    }
+}

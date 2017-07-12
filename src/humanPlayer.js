@@ -1,20 +1,12 @@
-/**
- * 人間のプレイヤー
- *
- */
-export class HumanPlayer {
-    constructor(playerId) {
-        this.playerId = playerId;
-    }
+import { alertAlreadyPutMessage } from './ui.js';
 
-    /**
-     * ユーザーが選択した場合に呼び出される関数
-     * もしすでにまるかばつが置かれていたらアラートをだす
-     */
-    select(board, Ui, x, y) {
-        if (board.isAlreadyPut(x, y)) {
-            Ui.alertAlreadyPutMessage();
-        }
-        board.put(x, y, this.playerId);
-    }
-}
+// 人間のプレーヤーが行うこと
+
+
+// boardのマスを選択する
+export function select(){
+    // もし選択したマスが既に埋まっていたらアラートをだす
+    alertAlreadyPutMessage();
+    // 選択したマスの情報をどこかの関数に渡してあげる
+
+} 
