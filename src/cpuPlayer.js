@@ -16,7 +16,7 @@ class Cpu {
     }
 }
 
-export class EasyCpu extends Cpu {
+export class RandomEasyCpu extends Cpu {
     constructor(playerId) {
         super(playerId);
     }
