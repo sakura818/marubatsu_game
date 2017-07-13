@@ -75,8 +75,7 @@
 // boardの仕組みに関するところ
 
 // とりあえずコンストラクタを真似てかいてみる
-function boardSetting(verticalLendth, horizontalLength)
-{
+function boardSetting(verticalLendth, horizontalLength) {
     this.verticalLendth = verticalLendth;
     this.horizontalLength = horizontalLength;
 
@@ -106,7 +105,7 @@ function isAlreadyPut(x, y) {
 }
 
 // boardにコマをおく関数
-function put(x, y, pieceHolderId) {
+function put(x, y, squareHolderId) {
     board[x][y]
 
 }
@@ -183,18 +182,24 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 
-__WEBPACK_IMPORTED_MODULE_0__humanPlayer_js__["a" /* humanPlayerPieceHolderId */]();
-__WEBPACK_IMPORTED_MODULE_1__cpu_js__["a" /* cpuPieceHolderId */]();
-__WEBPACK_IMPORTED_MODULE_2__board_js__["b" /* init */]();
-__WEBPACK_IMPORTED_MODULE_1__cpu_js__["b" /* select */](x,y);
-__WEBPACK_IMPORTED_MODULE_2__board_js__["a" /* gameEndCheck */]();
-gameStateAlert(gameState, pieceHolderId);
-__WEBPACK_IMPORTED_MODULE_1__cpu_js__["b" /* select */]();
-__WEBPACK_IMPORTED_MODULE_2__board_js__["a" /* gameEndCheck */]();
-gameStateAlert(gameState, pieceHolderId);
-// gameEndCheckの戻り値がENDになるまで
-// cpuとhumanを切り替えるポイントが必要
+let i = 3;
+alert( __WEBPACK_IMPORTED_MODULE_0__humanPlayer_js__["b" /* humanPlayerSquareHolderId */]+"Win");
+__WEBPACK_IMPORTED_MODULE_0__humanPlayer_js__["b" /* humanPlayerSquareHolderId */]();
 
+
+
+
+__WEBPACK_IMPORTED_MODULE_0__humanPlayer_js__["b" /* humanPlayerSquareHolderId */]();
+__WEBPACK_IMPORTED_MODULE_1__cpu_js__["b" /* cpuSquareHolderId */]();
+__WEBPACK_IMPORTED_MODULE_2__board_js__["b" /* init */]();
+__WEBPACK_IMPORTED_MODULE_0__humanPlayer_js__["a" /* humanPlayerSelectSquare */](x, y);
+__WEBPACK_IMPORTED_MODULE_2__board_js__["a" /* gameEndCheck */]();
+gameStateAlert(gameState, squareHolderId);
+__WEBPACK_IMPORTED_MODULE_1__cpu_js__["a" /* cpuSelectSquare */]();
+__WEBPACK_IMPORTED_MODULE_2__board_js__["a" /* gameEndCheck */]();
+gameStateAlert(gameState, squareHolderId);
+// gameEndCheckの戻り値がENDになるまで　これなんかいい方法ありそう
+// cpuとhumanを切り替えるポイントが必要
 
 
 
@@ -212,25 +217,25 @@ gameStateAlert(gameState, pieceHolderId);
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (immutable) */ __webpack_exports__["a"] = humanPlayerPieceHolderId;
-/* unused harmony export select */
+/* harmony export (immutable) */ __webpack_exports__["b"] = humanPlayerSquareHolderId;
+/* harmony export (immutable) */ __webpack_exports__["a"] = humanPlayerSelectSquare;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__ui_js__ = __webpack_require__(3);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__board_js__ = __webpack_require__(0);
 
 
 
 // 人間のプレーヤーが行うこと
-function humanPlayerPieceHolderId() {
-    pieceHolderId = 2;
+function humanPlayerSquareHolderId() {
+    return squareHolderId = 2;
 }
 
 // boardのマスを選択する
-function select(x, y) {
+function humanPlayerSelectSquare(x, y) {
     // もし選択したマスが既に埋まっていたらアラートをだす
     if (board.isAlreadyPut(x, y) == false) {
         __WEBPACK_IMPORTED_MODULE_0__ui_js__["a" /* alertAlreadyPutMessage */]();
     }
-    put(x, y, pieceHolderId);
+    put(x, y, squareHolderId);
 } 
 
 /***/ }),
@@ -246,12 +251,11 @@ function alertAlreadyPutMessage() {
     window.alert("クリックした場所は既にまるかばつで埋まっているため選択することはできません。");
 }
 
-
 // ゲームが終了した時にアラートを出す関数
 let gameState;
-function gameStateAlert(gameState, pieceHolderId) {
+function gameStateAlert(gameState, squareHolderId) {
     if (gameState == "end") {
-        window.alert(pieceHolderId + " Win");
+        window.alert(squareHolderId + "Win");
         // TODO : 本当はpieceHolderIdの人物名(human or cpu)を表示したい
     } else if (gameState == "draw") {
         window.alert("draw");
@@ -265,26 +269,26 @@ function gameStateAlert(gameState, pieceHolderId) {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (immutable) */ __webpack_exports__["a"] = cpuPieceHolderId;
-/* harmony export (immutable) */ __webpack_exports__["b"] = select;
+/* harmony export (immutable) */ __webpack_exports__["b"] = cpuSquareHolderId;
+/* harmony export (immutable) */ __webpack_exports__["a"] = cpuSelectSquare;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__board_js__ = __webpack_require__(0);
 
 
 // cpuが行うこと
 
-function cpuPieceHolderId() {
-        pieceHolderId = 2;
+function cpuSquareHolderId() {
+    squareHolderId = 2;
 }
 
 // boardのマスを選択する
-function select() {
+function cpuSelectSquare() {
     // マスを選択する方法はランダムに
     let x, y;
     do {
         x = Math.floor(Math.random() * verticalLendth);
         y = Math.floor(Math.random() * horizontalLength);
     } while (__WEBPACK_IMPORTED_MODULE_0__board_js__["c" /* isAlreadyPut */](x, y));
-    __WEBPACK_IMPORTED_MODULE_0__board_js__["d" /* put */](x,y,pieceHolderId);
+    __WEBPACK_IMPORTED_MODULE_0__board_js__["d" /* put */](x, y, squareHolderId);
 } 
 
 

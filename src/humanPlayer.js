@@ -3,7 +3,7 @@ import { isAlreadyPut } from "./board.js";
 
 // 人間のプレーヤーが行うこと
 export function humanPlayerSquareHolderId() {
-    squareHolderId = 2;
+    return squareHolderId = 2;
 }
 
 // boardのマスを選択する
