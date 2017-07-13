@@ -3,7 +3,8 @@ import { isAlreadyPut, put } from "./board.js";
 // cpuが行うこと
 
 export function cpuSquareHolderId() {
-    squareHolderId = 2;
+   let squareHolderId = 2;
+    return squareHolderId;
 }
 
 // boardのマスを選択する

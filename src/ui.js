@@ -6,6 +6,7 @@ export function alertAlreadyPutMessage() {
 
 // ゲームが終了した時にアラートを出す関数
 let gameState;
+let squareHolderId;
 export function gameStateAlert(gameState, squareHolderId) {
     if (gameState == "end") {
         window.alert(squareHolderId + "Win");

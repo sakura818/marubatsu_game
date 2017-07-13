@@ -10,6 +10,7 @@
 <body>
     <h1>marubatsu_game</h1>
     <div id="root"></div>
+
     <table width="350" height="350" border="1">
         <tr>
             <td>[0][0]</td>
@@ -28,5 +29,19 @@
         </tr>
     </table>
     <script src="dist/bundle.js"></script>
+
+    <button onclick="myFunction()">Click me</button>
+    <p id="demo"></p>
+    <script>
+        function myFunction() {
+            document.getElementById("demo").innerHTML = "Hello World";
+        }
+    </script>
+
+    <button onclick="change()">*</button>
+    <p id="id01"></p>
+
+
 </body>
+
 </html>

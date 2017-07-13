@@ -1,17 +1,21 @@
 import { humanPlayerSquareHolderId, humanPlayerSelectSquare, put } from "./humanPlayer.js"
 import { cpuSquareHolderId, cpuSelectSquare } from "./cpu.js";
-import { init, gameEndCheck } from "./board.js"
-
-let i = 3;
-alert(humanPlayerSquareHolderId + "Win");
-humanPlayerSquareHolderId();
+import { boardSetting, gameEndCheck } from "./board.js"
 
 
 
+function change(){
+    document.getElementById("id01").innerHTML = "我が輩は犬である。";
+}
+
+
+
+
+//alert(humanPlayerSquareHolderId() + "Win");
 
 humanPlayerSquareHolderId();
 cpuSquareHolderId();
-init();
+boardSetting();
 humanPlayerSelectSquare(x, y);
 gameEndCheck();
 gameStateAlert(gameState, squareHolderId);

@@ -68,24 +68,23 @@
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (immutable) */ __webpack_exports__["b"] = init;
+/* harmony export (immutable) */ __webpack_exports__["a"] = boardSetting;
+/* unused harmony export init */
 /* harmony export (immutable) */ __webpack_exports__["c"] = isAlreadyPut;
 /* harmony export (immutable) */ __webpack_exports__["d"] = put;
-/* harmony export (immutable) */ __webpack_exports__["a"] = gameEndCheck;
+/* harmony export (immutable) */ __webpack_exports__["b"] = gameEndCheck;
 // boardの仕組みに関するところ
-
-// とりあえずコンストラクタを真似てかいてみる
-function boardSetting(verticalLendth, horizontalLength) {
-    this.verticalLendth = verticalLendth;
-    this.horizontalLength = horizontalLength;
-
-    this.init()
-}
-
 
 // boardの縦の値、横の値を変数化
 let verticalLendth = 3;
 let horizontalLength = 3;
+
+// コンストラクタ　boardのたて、よこの値とboardのすべてのマスを0に初期化する
+function boardSetting(verticalLendth, horizontalLength) {
+    this.verticalLendth = verticalLendth;
+    this.horizontalLength = horizontalLength;
+    this.init()
+}
 
 // boardの2次元配列を作成し、すべてのマスの値を0に初期化する
 let x, y;
@@ -101,20 +100,16 @@ function init() {
 
 // 選択したマスがボード上で埋まっているか確認する 埋まっているかいないかboolean値で返す　埋まっていたらtrue、埋まっていなかったらfalse
 function isAlreadyPut(x, y) {
-    this.board[x][y] !== 0;
+    return this.board[x][y] !== 0;
 }
 
-// boardにコマをおく関数
+// boardにコマをおく関数 コマをおいた場所にはhumanPlayerなら1、cpuなら2がはいる(初期値は0)
 function put(x, y, squareHolderId) {
-    board[x][y]
-
+    board[x][y] = squareHolderId;
 }
 
-// xがよこvertical yがたてhorizontal
 // 判定条件　横に一列並んだか　戻り値としてゲームの状態値をかえす
-// x,yの場所にコマをおくのに、だれがおいたかも情報として保持してなきゃいけない
-// それを数字で管理する　まだ誰もおかれてないコマは0 人間が置いたコマは1 CPUがおいたコマは2にする
-// てことは一列に並んでる　= 同じ数字がならんでる　0も？　いや0はちがう　1か2が並んでる
+// 一列に並んでる　= 同じ数字(111か222のとき 000は除く)
 function horizontalLineUp() {
     for (y = 0; y < horizontalLength; y++) {
         for (x = 0; x < verticalLendth; x++) {
@@ -182,21 +177,25 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 
-let i = 3;
-alert( __WEBPACK_IMPORTED_MODULE_0__humanPlayer_js__["b" /* humanPlayerSquareHolderId */]+"Win");
-__WEBPACK_IMPORTED_MODULE_0__humanPlayer_js__["b" /* humanPlayerSquareHolderId */]();
+
+
+function change(){
+    document.getElementById("id01").innerHTML = "我が輩は犬である。";
+}
 
 
 
+
+//alert(humanPlayerSquareHolderId() + "Win");
 
 __WEBPACK_IMPORTED_MODULE_0__humanPlayer_js__["b" /* humanPlayerSquareHolderId */]();
 __WEBPACK_IMPORTED_MODULE_1__cpu_js__["b" /* cpuSquareHolderId */]();
-__WEBPACK_IMPORTED_MODULE_2__board_js__["b" /* init */]();
+__WEBPACK_IMPORTED_MODULE_2__board_js__["a" /* boardSetting */]();
 __WEBPACK_IMPORTED_MODULE_0__humanPlayer_js__["a" /* humanPlayerSelectSquare */](x, y);
-__WEBPACK_IMPORTED_MODULE_2__board_js__["a" /* gameEndCheck */]();
+__WEBPACK_IMPORTED_MODULE_2__board_js__["b" /* gameEndCheck */]();
 gameStateAlert(gameState, squareHolderId);
 __WEBPACK_IMPORTED_MODULE_1__cpu_js__["a" /* cpuSelectSquare */]();
-__WEBPACK_IMPORTED_MODULE_2__board_js__["a" /* gameEndCheck */]();
+__WEBPACK_IMPORTED_MODULE_2__board_js__["b" /* gameEndCheck */]();
 gameStateAlert(gameState, squareHolderId);
 // gameEndCheckの戻り値がENDになるまで　これなんかいい方法ありそう
 // cpuとhumanを切り替えるポイントが必要
@@ -226,7 +225,8 @@ gameStateAlert(gameState, squareHolderId);
 
 // 人間のプレーヤーが行うこと
 function humanPlayerSquareHolderId() {
-    return squareHolderId = 2;
+   let squareHolderId = 1;
+    return squareHolderId;
 }
 
 // boardのマスを選択する
@@ -253,6 +253,7 @@ function alertAlreadyPutMessage() {
 
 // ゲームが終了した時にアラートを出す関数
 let gameState;
+let squareHolderId;
 function gameStateAlert(gameState, squareHolderId) {
     if (gameState == "end") {
         window.alert(squareHolderId + "Win");
@@ -277,7 +278,8 @@ function gameStateAlert(gameState, squareHolderId) {
 // cpuが行うこと
 
 function cpuSquareHolderId() {
-    squareHolderId = 2;
+   let squareHolderId = 2;
+    return squareHolderId;
 }
 
 // boardのマスを選択する
