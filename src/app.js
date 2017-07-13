@@ -1,19 +1,19 @@
-import { humanPlayerPieceHolderId, select, put } from "./humanPlayer.js"
-import { cpuPieceHolderId, select } from "./cpu.js";
+import { humanPlayerSquareHolderId, humanPlayerSelectSquare, put } from "./humanPlayer.js"
+import { cpuSquareHolderId, cpuSelectSquare } from "./cpu.js";
 import { init, gameEndCheck } from "./board.js"
 
-humanPlayerPieceHolderId();
-cpuPieceHolderId();
+humanPlayerSquareHolderId();
+cpuSquareHolderId();
 init();
-select(x, y);
+humanPlayerSelectSquare(x, y);
 gameEndCheck();
-gameStateAlert(gameState, pieceHolderId);
-select();
+gameStateAlert(gameState, squareHolderId);
+cpuSelectSquare();
 gameEndCheck();
-gameStateAlert(gameState, pieceHolderId);
-// gameEndCheckの戻り値がENDになるまで
+gameStateAlert(gameState, squareHolderId);
+// gameEndCheckの戻り値がENDになるまで　これなんかいい方法ありそう
 // cpuとhumanを切り替えるポイントが必要
-
+//　同じ名前の関数だとどのクラスのものかわからないな　これなんかいい方法ありそう
 
 
 

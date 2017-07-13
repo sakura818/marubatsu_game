@@ -31,7 +31,7 @@ export function isAlreadyPut(x, y) {
 }
 
 // boardにコマをおく関数
-export function put(x, y, pieceHolderId) {
+export function put(x, y, squareHolderId) {
     board[x][y]
 
 }
