@@ -7,12 +7,13 @@ export function alertAlreadyPutMessage() {
 
 // ゲームが終了した時にアラートを出す関数
 let gameState;
-export function gameStateAlert() {
-    // TODO: gameStateを引数にもつ
+export function gameStateAlert(gameState, pieceHolderId) {
     if (gameState == "end") {
-        window.alert("You Win")
+        window.alert(pieceHolderId + " Win");
+        // TODO : 本当はpieceHolderIdの人物名(human or cpu)を表示したい
     } else if (gameState == "draw") {
-        window.alert("draw")
+        window.alert("draw");
     } else if (gameState == "continue") {
+        // TODO : continueのときの処理　
     }
 }
