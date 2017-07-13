@@ -1,9 +1,9 @@
-import { isAlreadyPut,put } from "./board.js";
+import { isAlreadyPut, put } from "./board.js";
 
 // cpuが行うこと
 
 export function cpuPieceHolderId() {
-        pieceHolderId = 2;
+    pieceHolderId = 2;
 }
 
 // boardのマスを選択する
@@ -14,5 +14,5 @@ export function select() {
         x = Math.floor(Math.random() * verticalLendth);
         y = Math.floor(Math.random() * horizontalLength);
     } while (isAlreadyPut(x, y));
-    put(x,y,pieceHolderId);
+    put(x, y, pieceHolderId);
 } 

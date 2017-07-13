@@ -1,8 +1,7 @@
 // boardの仕組みに関するところ
 
 // とりあえずコンストラクタを真似てかいてみる
-function boardSetting(verticalLendth, horizontalLength)
-{
+function boardSetting(verticalLendth, horizontalLength) {
     this.verticalLendth = verticalLendth;
     this.horizontalLength = horizontalLength;
 

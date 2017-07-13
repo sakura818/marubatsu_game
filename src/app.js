@@ -1,11 +1,11 @@
-import {humanPlayerPieceHolderId,select,put} from "./humanPlayer.js"
-import {cpuPieceHolderId,select } from "./cpu.js";
-import {init,gameEndCheck} from "./board.js"
+import { humanPlayerPieceHolderId, select, put } from "./humanPlayer.js"
+import { cpuPieceHolderId, select } from "./cpu.js";
+import { init, gameEndCheck } from "./board.js"
 
 humanPlayerPieceHolderId();
 cpuPieceHolderId();
 init();
-select(x,y);
+select(x, y);
 gameEndCheck();
 gameStateAlert(gameState, pieceHolderId);
 select();
